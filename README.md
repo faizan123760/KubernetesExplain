@@ -179,56 +179,194 @@ Scale a replica set:
 kubectl scale rs <replica-set-name> --replicas=<number>
 
 ```
-Services:
 
-Purpose: Provides networking and load balancing to pods, allowing access to a set of pods.
-Commands:
-Create a service: kubectl expose deployment <deployment-name> --port=<port> --target-port=<target-port> --type=<type>
-Get services: kubectl get services
-Volumes:
+## Services:
 
-Purpose: Provides persistent storage for pod containers.
-Commands:
-Create a persistent volume: kubectl apply -f persistent-volume.yaml
-Create a persistent volume claim: kubectl apply -f persistent-volume-claim.yaml
-List persistent volumes: kubectl get pv
-List persistent volume claims: kubectl get pvc
-ConfigMaps and Secrets:
+### Purpose:
 
-Purpose: Store configuration data and sensitive information securely.
-Commands:
-Create a config map: kubectl create configmap <configmap-name> --from-file=<path-to-file>
-Create a secret: kubectl create secret generic <secret-name> --from-literal=<key>=<value>
-DaemonSets:
+Provides networking and load balancing to pods, allowing access to a set of pods.
 
-Purpose: Ensures all (or some) nodes run a copy of a pod, typically for system daemons.
 Commands:
-Create a daemon set: kubectl apply -f daemonset-definition.yaml
-StatefulSets:
 
-Purpose: Manages the deployment and scaling of a set of pods with unique identities and persistent storage.
-Commands:
-Create a stateful set: kubectl apply -f statefulset-definition.yaml
-Jobs and CronJobs:
+Create a service:
 
-Purpose: Executes a task to completion (Job) or at a scheduled time (CronJob).
+```
+
+kubectl expose deployment <deployment-name> --port=<port> --target-port=<target-port> --type=<type>
+
+```
+
+Get services:
+
+```
+
+kubectl get services
+
+```
+
+## Volumes:
+
+## Purpose:
+
+Provides persistent storage for pod containers.
+
 Commands:
-Create a job: kubectl apply -f job-definition.yaml
-Create a cron job: kubectl apply -f cronjob-definition.yaml
-Advanced Kubernetes Commands
+
+Create a persistent volume:
+
+```
+
+kubectl apply -f persistent-volume.yaml
+
+```
+
+Create a persistent volume claim:
+
+```
+
+kubectl apply -f persistent-volume-claim.yaml
+
+```
+
+List persistent volumes: 
+
+```
+
+kubectl get pv
+
+```
+List persistent volume claims:
+
+```
+kubectl get pvc
+
+```
+
+## ConfigMaps and Secrets:
+
+### Purpose: 
+
+Store configuration data and sensitive information securely.
+
+Commands:
+Create a config map:
+
+```
+kubectl create configmap <configmap-name> --from-file=<path-to-file>
+
+```
+
+Create a secret: 
+
+```
+
+kubectl create secret generic <secret-name> --from-literal=<key>=<value>
+
+```
+
+## DaemonSets:
+
+### Purpose: 
+Ensures all (or some) nodes run a copy of a pod, typically for system daemons.
+
+Commands:
+
+Create a daemon set:
+
+```
+kubectl apply -f daemonset-definition.yaml
+
+```
+
+## StatefulSets:
+
+### Purpose: 
+
+Manages the deployment and scaling of a set of pods with unique identities and persistent storage.
+
+Commands:
+
+Create a stateful set:
+
+```
+kubectl apply -f statefulset-definition.yaml
+
+```
+## Jobs and CronJobs:
+
+### Purpose:
+
+Executes a task to completion (Job) or at a scheduled time (CronJob).
+Commands:
+Create a job: 
+
+```
+kubectl apply -f job-definition.yaml
+
+```
+Create a cron job:
+
+```
+kubectl apply -f cronjob-definition.yaml
+
+```
+## Advanced Kubernetes Commands
 kubectl explain: Detailed information about Kubernetes resources.
-Example: kubectl explain pod.spec.containers
-kubectl logs: Fetch the logs of a container.
-Example: kubectl logs <pod-name>
-kubectl exec: Execute commands inside a container.
-Example: kubectl exec -it <pod-name> -- /bin/bash
-kubectl top: View resource usage (CPU, memory) of nodes or pods.
-Example: kubectl top pods
-Kubernetes Networking and Services
-Network Policies: Define how groups of pods are allowed to communicate with each other and other network endpoints.
-Ingress Controllers: Exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
-Advanced Topics
-Horizontal Pod Autoscaler (HPA): Automatically scales the number of pods based on observed CPU utilization.
-Pod Affinity and Anti-Affinity: Control the scheduling of pods based on the presence of other pods.
-Custom Resource Definitions (CRDs): Extend Kubernetes API to manage custom resources (e.g., operators).
-Service Mesh (e.g., Istio): Enhances network observability, security, and traffic management for microservices.
+Example: 
+
+```
+
+kubectl explain pod.spec.containers
+
+```
+
+
+### kubectl logs: 
+Fetch the logs of a container.
+Example: 
+
+```
+kubectl logs <pod-name>
+
+```
+
+### kubectl exec: 
+
+Execute commands inside a container.
+
+Example: 
+
+```
+kubectl exec -it <pod-name> -- /bin/bash
+
+```
+
+### kubectl top:
+View resource usage (CPU, memory) of nodes or pods.
+Example: 
+
+```
+kubectl top pods
+
+```
+
+## Kubernetes Networking and Services
+
+### Network Policies: 
+
+Define how groups of pods are allowed to communicate with each other and other network endpoints.
+
+### Ingress Controllers:
+
+Exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
+
+# Horizontal Pod Autoscaler (HPA):
+
+Automatically scales the number of pods based on observed CPU utilization.
+
+## Pod Affinity and Anti-Affinity: 
+Control the scheduling of pods based on the presence of other pods.
+## Custom Resource Definitions (CRDs):
+Extend Kubernetes API to manage custom resources (e.g., operators).
+## Service Mesh (e.g., Istio):
+Enhances network observability, security, and traffic management for microservices.
